@@ -1,0 +1,42 @@
+/* NodeJS Week2-Assignment2 */
+
+// grab the things we need
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
+//no currency for this schema
+
+// create a schema
+var leaderSchema = new Schema({
+    name: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    image: {
+        type: String,
+        required: true
+    },
+    designation: {
+        type: String,
+        required: true
+    },
+    abbr: {
+        type: String,
+        required: true
+    },
+    description: {
+        type: String,
+        required: true
+    },
+
+}, {
+    timestamps: true
+});
+
+
+// the schema is useless so far
+// we need to create a model using it
+var Leadership = mongoose.model('Leader', leaderSchema);
+
+// make this available to our Node applications
+module.exports = Leadership;
